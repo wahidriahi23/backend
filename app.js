@@ -34,7 +34,7 @@ app.use(rateLimiting({
 
 // Cors Policy
 app.use(cors({
-  origin: "https://api-blog-or30.onrender.com"
+  origin: "https://blog-pro-ancs.onrender.com"
 }));
 
 // Routes
