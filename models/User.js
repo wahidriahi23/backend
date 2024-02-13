@@ -37,11 +37,11 @@ const UserSchema = new mongoose.Schema({
         type: String,
     },
     isAdmin: {
-        type:Boolean,
+        type: Boolean,
         default: false,
     },
     isAccountVerified: {
-        type:Boolean,
+        type: Boolean,
         default: false,
     },
 }, {
@@ -58,8 +58,8 @@ UserSchema.virtual("posts", {
 });
 
 // Generate Auth Token
-UserSchema.methods.generateAuthToken = function() {
-    return jwt.sign({id: this._id, isAdmin: this.isAdmin}, process.env.JWT_SECRET);
+UserSchema.methods.generateAuthToken = function () {
+    return jwt.sign({ id: this._id, isAdmin: this.isAdmin }, process.env.JWT_SECRET);
 }
 
 // User Model
@@ -118,13 +118,3 @@ module.exports = {
     validateEmail,
     validateNewPassword
 }
-
-// const schema = Joi.object({
-//     username: Joi.string().trim().min(2).max(100).messages({
-//         'any.required': 'الاسم مطلوب',
-//         'string.base': 'الاسم لازم يكون من نوع نص',
-//         'string.empty': 'رجاء ادخال الاسم',
-//         'string.min': 'لا يجوز الاسم يكون اقل من ثلاثة حروف',
-//         'string.max': 'لا يجوز الاسم يكون اكثر من مئه حروف',
-//     }),
-// });
