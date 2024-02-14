@@ -7,6 +7,7 @@ module.exports = async (userEmail, subject, htmlTemplate) => {
       auth: {
         user: process.env.APP_EMAIL_ADDRESS,
         pass: process.env.APP_EMAIL_PASSWORD,
+        send: process.env.CLIENT_DOMAIN,
       },
     });
 
